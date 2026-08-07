@@ -1,0 +1,53 @@
+# Lena Berding — robots.txt
+# Standard-Suchmaschinen und KI-Crawler sind ausdrücklich erlaubt.
+# WICHTIG: Sobald die echte Domain feststeht, die Sitemap-Zeile unten anpassen.
+
+User-agent: *
+Allow: /
+
+# Klassische Suchmaschinen (zur Klarheit einzeln erlaubt)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# KI-/LLM-Crawler — explizit erlaubt, damit die Seite in ChatGPT-, Perplexity-,
+# Claude- und Google-AI-Overviews-Antworten auftauchen kann
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.your-domain-here.com/sitemap.xml
