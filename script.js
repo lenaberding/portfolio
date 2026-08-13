@@ -62,10 +62,14 @@ function copyEmail(btn, email){
 // Frage/Antwort hier anpassen, hinzufügen oder entfernen.
 const faqData = [
   ["What's the ideal guest number or event size?", "It works for events of any size — an intimate VIP evening where every guest receives a sketch, or a larger event where I draw as many guests as possible within a set time. Expect 8–12 illustrations per hour. I recommend bookings of at least 3 hours."],
-  ["What kind of illustrations will be created?", "Expressive fashion sketches focused on silhouette and personality, usually ink and coloured pencil on A6 or A5 fine art paper, customised for your event — your logo, event details, fabric samples or pressed flowers. We decide the design beforehand."],
-  ["What do you need on the day?", "A good sized table and a chair — I bring everything else. I arrive 30–45 minutes early to set up before the event begins."],
-  ["How are events priced?", "Hourly rate plus material fee plus travel fees if necessary. Send a booking request with your event details for a precise quote and availability."],
-  ["Is this a good fit for my brand?", "Yes, if you're a fashion, beauty, jewellery, food or lifestyle brand planning a product launch, VIP event, brand activation or pop-up."]
+  ["What kind of illustrations will be created?", "I create expressive fashion sketches that focus on silhouette and personality. I usually draw in ink and coloured pencil on A6 or A5 fine art paper. The paper can be customised for your event. This could include your logo, event details, a custom illustration, fabric samples, lipstick swatches, pressed flowers ... Let's talk about the different ways you can make your brand stand out."],
+  ["What do you need on the day?", "A good sized table, a chair and decent lighting. I bring everything else. 
+On the day of your event, I  will arrive 30-45 mins earlier to set up before the event begins."],
+  ["How are events priced?", "Hourly rate + material fee + travel fees (if necessary). Free within Berlin and surroundings.
+A 30% deposit secures your booking.
+Please send a booking request with your event details for precise quotes and availability."],
+  ["Is this a good fit for my brand?", "Yes, if you're planning:<ul><li>a fashion brand</li><li>a beauty, jewellery, food, or lifestyle brand</li><li>planning a product launch, VIP event, brand activation, or a pop-up event</li></ul>
+"]
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
