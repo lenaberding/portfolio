@@ -229,6 +229,7 @@
    das eingesetzte <img> automatisch passend zu, egal welches Seitenverhältnis
    das Originalfoto hat. */
 .hero-figure img,
+.hero-figure video,
 .portrait img,
 .imgblock img,
 .quote-image img,
