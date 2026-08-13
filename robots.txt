@@ -50,4 +50,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://www.your-domain-here.com/sitemap.xml
+Sitemap: https://www.lenaberding.com/sitemap.xml

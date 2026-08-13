@@ -7,10 +7,10 @@
 
 ## Pages
 
-- [Home](https://www.your-domain-here.com/): Overview of both services.
-- [Live Fashion Illustration](https://www.your-domain-here.com/live-fashion-illustration.html): Live event illustration for store openings, product launches and brand activations — booking process, FAQ, pricing model.
-- [Editorial & Brand Illustration](https://www.your-domain-here.com/editorial-illustration.html): Hand-drawn illustration for magazines, packaging and campaign visuals.
-- [About](https://www.your-domain-here.com/about.html): Background as a designer, brand strategist and illustrator.
+- [Home](https://www.lenaberding.com/): Overview of both services.
+- [Live Fashion Illustration](https://www.lenaberding.com/live-fashion-illustration.html): Live event illustration for store openings, product launches and brand activations — booking process, FAQ, pricing model.
+- [Editorial & Brand Illustration](https://www.lenaberding.com/editorial-illustration.html): Hand-drawn illustration for magazines, packaging and campaign visuals.
+- [About](https://www.lenaberding.com/about.html): Background as a designer, brand strategist and illustrator.
 
 ## Contact
 
