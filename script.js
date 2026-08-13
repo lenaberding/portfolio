@@ -61,15 +61,12 @@ function copyEmail(btn, email){
 // FAQ-Daten für die Live-Fashion-Illustration-Seite.
 // Frage/Antwort hier anpassen, hinzufügen oder entfernen.
 const faqData = [
-  ["What's the ideal guest number or event size?", "It works for events of any size — an intimate VIP evening where every guest receives a sketch, or a larger event where I draw as many guests as possible within a set time. Expect 8–12 illustrations per hour. I recommend bookings of at least 3 hours."],
+  ["What's the ideal guest number or event size?", "It works for events of any size. It can be an intimate VIP evening where every guest receives a sketch, or a larger event where I draw as many guests as possible within a set time window. Depending on your creative needs and number of guests, the amount of illustrations can vary from 8-12 per hour (3-5 mins per illustration). I recommend bookings of at least 3 hours."],
   ["What kind of illustrations will be created?", "I create expressive fashion sketches that focus on silhouette and personality. I usually draw in ink and coloured pencil on A6 or A5 fine art paper. The paper can be customised for your event. This could include your logo, event details, a custom illustration, fabric samples, lipstick swatches, pressed flowers ... Let's talk about the different ways you can make your brand stand out."],
-  ["What do you need on the day?", `A good sized table, a chair and decent lighting. I bring everything else. 
-On the day of your event, I  will arrive 30-45 mins earlier to set up before the event begins.`],
-  ["How are events priced?", `Hourly rate + material fee + travel fees (if necessary). Free within Berlin and surroundings.
-A 30% deposit secures your booking.
-Please send a booking request with your event details for precise quotes and availability.`],
-  ["Is this a good fit for my brand?", `Yes, if you're planning:<ul><li>a fashion brand</li><li>a beauty, jewellery, food, or lifestyle brand</li><li>planning a product launch, VIP event, brand activation, or a pop-up event</li></ul>
-`]
+  ["What do you need on the day?", "A good sized table, a chair and decent lighting. I bring everything else. On the day of your event, I will arrive 30-45 mins earlier to set up before the event begins."],
+  ["How are events priced?", "Hourly rate + material fee + travel fees (if necessary). Free within Berlin and surroundings. A 30% deposit secures your booking. Please send a booking request with your event details for precise quotes and availability."],
+  ["What's it like to work with you?", "I'm easy to work with and I know how to read a room. I speak German, English, Spanish, and Russian, and adapt easily to different guests and event settings. My goal is to make the process feel effortless for everyone."],
+  ["Is this a good fit for my brand?", "Yes, if you're planning:<ul><li>a fashion brand</li><li>a beauty, jewellery, food, or lifestyle brand</li><li>a product launch, VIP event, brand activation, or a pop-up event</li></ul>"]
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -78,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   faqData.forEach(([q, a]) => {
     const item = document.createElement('div');
     item.className = 'faq-item';
-    item.innerHTML = `<div class="faq-q"><span>${q}</span><span class="plus">+</span></div><div class="faq-a"><p>${a}</p></div>`;
+    item.innerHTML = `<div class="faq-q"><span>${q}</span><span class="plus">+</span></div><div class="faq-a">${a}</div>`;
     faqList.appendChild(item);
   });
 });

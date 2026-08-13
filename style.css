@@ -182,9 +182,10 @@
   .faq-q { display:flex; justify-content:space-between; align-items:center; font-size:15px; font-family:'Playfair Display',serif; color: var(--cream); }
   .faq-q .plus { font-family:'Inter',sans-serif; font-size: 20px; color: var(--gold); transition: transform .2s; }
   .faq-item.open .plus { transform: rotate(45deg); }
-  .faq-a { max-height:0; overflow:hidden; transition: max-height .25s ease; }
+  .faq-a { max-height:0; overflow:hidden; transition: max-height .25s ease; padding-top: 14px; font-size:13.5px; line-height:1.8; color: #f2e6d9; max-width: 620px; }
   .faq-item.open .faq-a { max-height: 300px; }
-  .faq-a p { padding-top: 14px; font-size:13.5px; line-height:1.8; color: #f2e6d9; max-width: 620px; }
+  .faq-a ul { margin-top: 8px; padding-left: 20px; }
+  .faq-a li { margin-bottom: 4px; }
 
   /* ---------- editorial gallery (wendy macnaughton style) ---------- */
   .drawings { margin-top: 50px; display:grid; grid-template-columns: 1fr 1fr; gap: 50px 40px; }
