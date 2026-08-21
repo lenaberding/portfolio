@@ -8,7 +8,8 @@ bereit für GitHub Pages.
 ```
 index.html                      → Home
 live-fashion-illustration.html  → Live Fashion Illustration
-editorial-illustration.html     → Editorial & Brand Illustration
+editorial-illustration.html     → Editorial & Brand Illustration (Serien-Übersicht, Masonry-Galerie)
+series-*.html                   → Detailseiten der einzelnen Serien (Titel, Beschreibung, Bildergalerie)
 about.html                      → About
 impressum.html                  → Impressum (Deutsch)
 datenschutz.html                → Datenschutzerklärung (Deutsch)
@@ -86,15 +87,46 @@ dann aber das `src="images/…"` an der jeweiligen Stelle im HTML mit anpassen.
 | `fashion-sketch-live-drawing-event.jpg` | Live-Seite, "The magic of…" | Hochformat 4:5 |
 | `guest-fashion-illustration-keepsake.jpg` | Live-Seite, Zitat-Section | Querformat 16:9 |
 | `editorial-fashion-illustration-lena-berding.jpg` | Editorial-Seite, Hero rechts | Hochformat 3:4 |
-| `fashion-illustration-silhouette-study.jpg` | Editorial-Galerie 1 | Hochformat 4:5 |
-| `fashion-portrait-illustration-commission.jpg` | Editorial-Galerie 2 | Hochformat 4:5 |
-| `editorial-illustration-lifestyle-magazine.jpg` | Editorial-Galerie 3 | Hochformat 4:5 |
-| `packaging-illustration-food-brand.jpg` | Editorial-Galerie 4 | Hochformat 4:5 |
+| `fashion-illustration-silhouette-study.jpg` | Editorial-Galerie, Cover + Bild "Fashion Sketches" | beliebiges Format |
+| `editorial-illustration-lifestyle-magazine.jpg` | Editorial-Galerie, Cover "Private Commissions" | beliebiges Format |
+| `fashion-portrait-illustration-commission.jpg` | Serie "Private Commissions", Bild 2 (Couple Portrait) | beliebiges Format |
+| `packaging-illustration-food-brand.jpg` | Serie "Private Commissions", Bild 1 (Wedding Invitation) | beliebiges Format |
 | `fashion-illustrator-lena-berding-about.jpg` | About-Seite, Hero rechts | Hochformat 3:4 |
 
 **Wichtig für Ladezeit:** Fotos vor dem Hochladen komprimieren (z. B. mit
 [squoosh.app](https://squoosh.app), kostenlos) — Zielgröße ca. 150–400 KB pro Bild,
 nicht mehrere MB direkt vom Handy/der Kamera.
+
+## Editorial-Galerie: neue Serie hinzufügen
+
+Die Galerie auf `editorial-illustration.html` ist ein **Masonry-Raster**: Fotos
+ordnen sich automatisch in Spalten ein, egal ob Hoch-, Quer- oder Quadratformat —
+du musst nichts zuschneiden oder auf ein einheitliches Format bringen. Jede Kachel
+zeigt beim Hover (bzw. beim ersten Antippen auf dem Handy) den Serientitel als
+Overlay und verlinkt beim Klick auf eine eigene Detailseite mit Titel,
+Kurzbeschreibung und der vollständigen Bildergalerie dieser Serie.
+
+**Neue Serie hinzufügen, in drei Schritten:**
+
+1. **Detailseite anlegen** — eine bestehende `series-*.html`-Datei (z. B.
+   `series-private-commission.html`) duplizieren und umbenennen, z. B.
+   `series-street-style.html`. Darin ändern:
+   - `<title>`, `canonical`-Link, `og:title`, `og:url`, `og:description` und den
+     `<h1>`-Titel sowie den Beschreibungstext (`<p class="lead">`) unter
+     `TEXT:`-Kommentaren.
+   - Die Bilder im `<div class="masonry series-gallery">`-Block: pro Foto einen
+     kompletten `<div class="masonry-item">…</div>`-Block kopieren, einfügen
+     oder entfernen — beliebig viele, beliebiges Format.
+2. **Bilder in `images/` legen**, mit eigenen, gut benannten Dateinamen (siehe
+   Tabelle oben).
+3. **Kachel auf der Übersichtsseite ergänzen** — in `editorial-illustration.html`
+   im `<div class="masonry">`-Block einen kompletten
+   `<a class="masonry-item">…</a>`-Block kopieren, einfügen und anpassen:
+   Bildpfad, Alt-Text, Serientitel (`<span class="masonry-title">`) und den
+   `href` auf die neue Detailseite.
+
+Optional: die neue Detailseite in `sitemap.xml` ergänzen (gleiches Muster wie
+die bestehenden `series-*`-Einträge), damit Google sie schneller findet.
 
 ## Favicon (Browser-Tab-Icon) ändern
 
