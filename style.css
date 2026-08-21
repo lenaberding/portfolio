@@ -187,17 +187,45 @@
   .faq-a ul { margin-top: 8px; padding-left: 20px; }
   .faq-a li { margin-bottom: 4px; }
 
-  /* ---------- editorial gallery (wendy macnaughton style) ---------- */
-  .drawings { margin-top: 50px; display:grid; grid-template-columns: 1fr 1fr; gap: 50px 40px; }
-  @media (max-width:700px){ .drawings{ grid-template-columns:1fr; gap: 44px; } }
-  .drawing-img {
-    aspect-ratio: 4/5; background: var(--cream-2); color: var(--terracotta);
-    display:flex; align-items:center; justify-content:center; border-radius: 2px;
+  /* ---------- masonry gallery (Serien-Übersicht, z.B. editorial-illustration.html) ----------
+     Bilder ordnen sich automatisch in gleich breite Spalten ein, unabhängig vom
+     Seitenverhältnis (Hochformat, Querformat, quadratisch) — kein manuelles
+     Zuschneiden nötig. Die Spalten selbst (.masonry-col) werden von script.js
+     zur Laufzeit erzeugt und befüllt (siehe initMasonry dort); das sorgt dafür,
+     dass immer alle Spalten über die volle Breite genutzt werden, auch bei nur
+     wenigen bzw. sehr unterschiedlich hohen Bildern.
+     Jede Kachel verlinkt auf eine eigene Serien-Detailseite (siehe series-*.html). */
+  .masonry { margin-top: 50px; display:flex; align-items:flex-start; gap: 28px; }
+  @media (max-width: 900px){ .masonry{ gap: 20px; } }
+  .masonry-col { display:flex; flex-direction:column; gap: 28px; flex: 1 1 0; min-width: 0; }
+  @media (max-width: 900px){ .masonry-col{ gap: 20px; } }
+  .masonry-item {
+    display:block; position: relative; border-radius: 2px; overflow:hidden; background: var(--cream-2);
   }
-  .drawing figcaption {
-    margin-top: 16px; font-family:'Cormorant Garamond', serif; font-style: italic; font-size: 16px;
-    color: var(--ink-soft);
+  .masonry-item img { width:100%; height:auto; display:block; transition: transform .5s ease; }
+  .masonry-item:hover img, .masonry-item:focus-visible img { transform: scale(1.045); }
+  .masonry-overlay {
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding: 22px; background: rgba(58,42,30,0.45);
+    opacity:0; transition: opacity .3s ease;
   }
+  .masonry-item:hover .masonry-overlay,
+  .masonry-item:focus-visible .masonry-overlay { opacity:1; }
+  .masonry-title {
+    font-family:'Playfair Display', serif; font-style: italic; font-size: 20px; color: var(--cream);
+  }
+  .masonry-item:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* ---------- Serien-Detailseite (series-*.html): Titel + Beschreibung oben,
+     darunter die volle Galerie dieser Serie — gleiche Masonry-Logik, ohne Link/Overlay. ---------- */
+  .series-back { display:inline-block; margin-bottom: 26px; font-size: 13px; letter-spacing:0.04em; color: var(--ink-soft); }
+  .series-back:hover { color: var(--terracotta); }
+  .series-head h1 { font-size: 38px; max-width: 700px; }
+  @media (max-width:600px){ .series-head h1{ font-size:28px; } }
+  .series-head p.lead { margin-top: 18px; max-width: 640px; }
+  .series-gallery { margin-top: 10px; }
+  .series-gallery .masonry-item { cursor: default; }
+  .series-gallery .masonry-item img { transition: none; }
 
   /* ---------- about ---------- */
   .credits { margin-top: 34px; padding-top: 20px; padding-bottom: 20px; display:flex; flex-wrap:wrap; gap: 10px 28px; }

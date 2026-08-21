@@ -7,6 +7,80 @@
   JavaScript-Seitenumschaltung mehr — normale Links reichen.
 */
 
+// ---------- Masonry-Galerie (editorial-illustration.html + series-*.html) ----------
+// Verteilt die Fotos automatisch auf gleich breite Spalten (2-3, je nach
+// Bildschirmbreite) — unabhängig vom Seitenverhältnis der einzelnen Fotos.
+// Jedes neue Foto wird immer in die aktuell kürzeste Spalte einsortiert, damit
+// keine Spalte leer bleibt und alle Spalten die Breite gleichmäßig ausnutzen.
+(function () {
+  function columnsForWidth(width) {
+    if (width < 560) return 1;
+    if (width < 900) return 2;
+    return 3;
+  }
+
+  function layout(container) {
+    const items = container._masonryItems
+      || Array.from(container.children).filter((el) => el.classList.contains('masonry-item'));
+    if (!items.length) return;
+    container._masonryItems = items;
+
+    const cols = columnsForWidth(container.clientWidth || container.offsetWidth);
+    container.innerHTML = '';
+    const columns = [];
+    const heights = [];
+    for (let i = 0; i < cols; i++) {
+      const col = document.createElement('div');
+      col.className = 'masonry-col';
+      container.appendChild(col);
+      columns.push(col);
+      heights.push(0);
+    }
+
+    items.forEach((item) => {
+      let target = 0;
+      for (let i = 1; i < cols; i++) { if (heights[i] < heights[target]) target = i; }
+      columns[target].appendChild(item);
+      const img = item.querySelector('img');
+      const ratio = (img && img.naturalWidth && img.naturalHeight)
+        ? img.naturalHeight / img.naturalWidth
+        : 1.2; // Schätzwert, solange das Bild noch nicht geladen ist
+      heights[target] += ratio;
+    });
+  }
+
+  function initMasonry() {
+    const containers = document.querySelectorAll('.masonry');
+    if (!containers.length) return;
+
+    containers.forEach(layout);
+
+    // Sobald alle Bilder einer Galerie geladen sind, einmal neu einsortieren —
+    // dann stimmt die Spaltenverteilung auch für Bilder mit unbekanntem Format.
+    containers.forEach((container) => {
+      let pending = 0;
+      container.querySelectorAll('img').forEach((img) => {
+        if (!img.complete) {
+          pending++;
+          img.addEventListener('load', () => {
+            pending--;
+            if (pending === 0) layout(container);
+          }, { once: true });
+        }
+      });
+    });
+
+    // Bei Fenstergröße-Änderung (z. B. Handy drehen) Spaltenzahl neu berechnen.
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => containers.forEach(layout), 150);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initMasonry);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('overlay');
   const burgerBtn = document.getElementById('burgerBtn');
