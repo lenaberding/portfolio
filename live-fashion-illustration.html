@@ -27,9 +27,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Schriften werden selbst gehostet (fonts/-Ordner + @font-face in style.css) —
+     kein Aufruf an Google-Server, daher kein Cookie-Banner dafür nötig. -->
 <link rel="stylesheet" href="style.css">
 
 <script type="application/ld+json">
@@ -138,10 +137,30 @@ Optionally, I create a custom event illustration or digitise selected sketches a
     <div class="wrap">
       <!-- TEXT: Zitat -->
       <blockquote>The most personal gift: Being seen as a work of art.</blockquote>
-      <!-- BILD AUSTAUSCHEN: images/guest-fashion-illustration-keepsake.jpg (empfohlen ca. 1200×675px, Querformat) -->
-      <div class="quote-image">
-        <img src="images/guest-fashion-illustration-keepsake.jpg" alt="Guest holding a finished live fashion illustration" width="1200" height="675" loading="lazy">
-      </div>
+    </div>
+
+    <!-- FOTOREIHE — mehrere Fotos in einer Reihe, gleiche Höhe, unterschiedliche Breite
+         je nach Format. Läuft bewusst über die volle Breite (liegt deshalb außerhalb
+         von .wrap). Auf dem Handy wird die Reihe waagerecht weggewischt statt
+         umzubrechen — Fotos erscheinen nie untereinander.
+
+         Diese 5 Bilder gehören NUR dieser Fotoreihe (eigene Dateinamen
+         "live-fashion-illustration-photo-strip-…"). Du kannst sie also frei
+         austauschen, ohne dass sich dadurch Bilder auf einer anderen Seite mitändern.
+
+         Zum Hinzufügen/Entfernen: ein komplettes <img>-Tag kopieren, einfügen oder
+         löschen — beliebig viele, beliebiges Format. -->
+    <div class="photo-strip">
+      <!-- BILD AUSTAUSCHEN: images/live-fashion-illustration-photo-strip-1.jpg -->
+      <img src="images/live-fashion-illustration-photo-strip-1.jpg" alt="Guest holding a finished live fashion illustration" loading="lazy">
+      <!-- BILD AUSTAUSCHEN: images/live-fashion-illustration-photo-strip-2.jpg -->
+      <img src="images/live-fashion-illustration-photo-strip-2.jpg" alt="Fashion sketch, silhouette study" loading="lazy">
+      <!-- BILD AUSTAUSCHEN: images/live-fashion-illustration-photo-strip-3.jpg -->
+      <img src="images/live-fashion-illustration-photo-strip-3.jpg" alt="Two finished fashion sketches" loading="lazy">
+      <!-- BILD AUSTAUSCHEN: images/live-fashion-illustration-photo-strip-4.jpg -->
+      <img src="images/live-fashion-illustration-photo-strip-4.jpg" alt="Fashion sketches on a desk" loading="lazy">
+      <!-- BILD AUSTAUSCHEN: images/live-fashion-illustration-photo-strip-5.jpg -->
+      <img src="images/live-fashion-illustration-photo-strip-5.jpg" alt="Guest portrait fashion sketch" loading="lazy">
     </div>
   </section>
 

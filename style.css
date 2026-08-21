@@ -5,6 +5,55 @@
   Texte werden direkt in index.html geändert.
 */
 
+/* ---------- Schriften (selbst gehostet, kein Google-Fonts-Aufruf) ----------
+   Dateien liegen im fonts/-Ordner. Es sind "Variable Fonts": eine einzige
+   Datei pro Schriftschnitt deckt automatisch alle Schriftstärken ab (deshalb
+   nur 6 Dateien für 3 Schriftfamilien × normal/kursiv). Weil nichts mehr von
+   fonts.googleapis.com/fonts.gstatic.com geladen wird, ist dafür auch kein
+   Cookie-Banner nötig. Lizenz: SIL Open Font License, siehe fonts/OFL-*.txt. */
+  @font-face {
+    font-family: 'Inter';
+    src: url('fonts/inter-normal.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('fonts/inter-italic.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/playfair-display-normal.woff2') format('woff2');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/playfair-display-italic.woff2') format('woff2');
+    font-weight: 400 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('fonts/cormorant-garamond-normal.woff2') format('woff2');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('fonts/cormorant-garamond-italic.woff2') format('woff2');
+    font-weight: 400 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
   :root{
     --terracotta: #A9522F;
     --terracotta-dark: #7A3A1F;
@@ -174,6 +223,34 @@
   .quote-image {
     max-width: 520px; margin: 0 auto; aspect-ratio: 16/9; background: rgba(243,238,231,0.08);
     display:flex; align-items:center; justify-content:center; color: var(--gold); border-radius: 2px;
+  }
+
+  /* ---------- photo strip (Reihe aus mehreren Fotos, z. B. unter dem Zitat) ----------
+     Randlose Reihe: alle Fotos haben dieselbe Höhe, ihre Breite richtet sich nach dem
+     eigenen Seitenverhältnis. Läuft absichtlich über die volle Bildschirmbreite
+     (deshalb außerhalb von .wrap platziert, siehe HTML).
+
+     Ab 640px Breite (Desktop/Tablet): Flexbox streckt/staucht die Fotos minimal, so
+     dass die Reihe exakt die volle Breite ausfüllt, egal wie viele Fotos oder welches
+     Format — kein Zuschneiden von Hand nötig.
+
+     Unter 640px (Handy): die Reihe bleibt eine Reihe und wird stattdessen waagerecht
+     weggewischt (Scroll-Snap) — so verhindert, dass die Fotos auf kleinen Screens
+     untereinander erscheinen. */
+  .photo-strip {
+    display:flex; height: 320px; gap: 5px; margin-top: 46px;
+  }
+  .photo-strip img {
+    height:100%; width:auto; flex:1 1 auto; min-width:0; object-fit:cover; display:block;
+  }
+  @media (max-width:900px){ .photo-strip{ height: 240px; } }
+  @media (max-width:640px){
+    .photo-strip {
+      height: 200px; margin-top: 34px; gap: 6px;
+      overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;
+      padding: 0 22px;
+    }
+    .photo-strip img { flex: 0 0 auto; scroll-snap-align: start; }
   }
 
   /* ---------- faq ---------- */

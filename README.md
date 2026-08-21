@@ -18,6 +18,8 @@ style.css                       → Farben, Abstände, Layout (für alle Seiten 
 script.js                       → Menü, FAQ-Klappliste, "E-Mail kopieren"
 
 images/                         → alle Fotos/Illustrationen (aktuell Platzhalter)
+fonts/                          → selbst gehostete Schriftdateien (kein Google-Fonts-Aufruf,
+                                   dadurch kein Cookie-Banner dafür nötig) + Lizenztexte (OFL-*.txt)
 favicon.ico, favicon-*.png,
 apple-touch-icon.png, android-*.png,
 site.webmanifest                → Browser-Tab-Icon (aktuell "LB"-Monogramm)
@@ -85,17 +87,24 @@ dann aber das `src="images/…"` an der jeweiligen Stelle im HTML mit anpassen.
 | `fashion-illustrator-lena-berding-portrait.jpg` | Home, About-Teaser | Hochformat 3:4 |
 | `live-illustration-brand-activation.jpg` | Live-Seite, Hero rechts | Hochformat 3:4 |
 | `fashion-sketch-live-drawing-event.jpg` | Live-Seite, "The magic of…" | Hochformat 4:5 |
-| `guest-fashion-illustration-keepsake.jpg` | Live-Seite, Zitat-Section | Querformat 16:9 |
+| `live-fashion-illustration-photo-strip-1.jpg` bis `…-5.jpg` | Live-Seite, Fotoreihe bei "The most personal gift…" | beliebiges Format |
 | `editorial-fashion-illustration-lena-berding.jpg` | Editorial-Seite, Hero rechts | Hochformat 3:4 |
-| `fashion-illustration-silhouette-study.jpg` | Editorial-Galerie, Cover + Bild "Fashion Sketches" | beliebiges Format |
-| `editorial-illustration-lifestyle-magazine.jpg` | Editorial-Galerie, Cover "Private Commissions" | beliebiges Format |
-| `fashion-portrait-illustration-commission.jpg` | Serie "Private Commissions", Bild 2 (Couple Portrait) | beliebiges Format |
-| `packaging-illustration-food-brand.jpg` | Serie "Private Commissions", Bild 1 (Wedding Invitation) | beliebiges Format |
+| `private-commissions-cover.jpg` | Editorial-Galerie, Cover "Private Commissions" (+ Vorschaubild dieser Serie beim Teilen) | beliebiges Format |
+| `fashion-sketches-cover.jpg` | Editorial-Galerie, Cover "Fashion Sketches" (+ Vorschaubild dieser Serie beim Teilen) | beliebiges Format |
+| `private-commission-wedding-invitation.jpg` | Serie "Private Commissions", Bild 1 | beliebiges Format |
+| `private-commission-couple-portrait.jpg` | Serie "Private Commissions", Bild 2 | beliebiges Format |
+| `fashion-sketches-01.jpg`, `…-02.jpg`, `…-03.jpg` | Serie "Fashion Sketches" | beliebiges Format |
 | `fashion-illustrator-lena-berding-about.jpg` | About-Seite, Hero rechts | Hochformat 3:4 |
 
 **Wichtig für Ladezeit:** Fotos vor dem Hochladen komprimieren (z. B. mit
 [squoosh.app](https://squoosh.app), kostenlos) — Zielgröße ca. 150–400 KB pro Bild,
 nicht mehrere MB direkt vom Handy/der Kamera.
+
+**Jede Datei gehört nur einer Stelle:** Jedes Bild in der Tabelle oben wird nur an
+genau einer Stelle verwendet (Ausnahme: die beiden Serien-Cover erscheinen
+zusätzlich als Vorschaubild, wenn die jeweilige Serien-Seite geteilt wird — das
+ist dieselbe Serie, kein Konflikt). Du kannst also jedes Bild einzeln ersetzen,
+ohne dass sich dadurch ungewollt ein Foto an einer anderen Stelle mitändert.
 
 ## Editorial-Galerie: neue Serie hinzufügen
 
@@ -127,6 +136,20 @@ Kurzbeschreibung und der vollständigen Bildergalerie dieser Serie.
 
 Optional: die neue Detailseite in `sitemap.xml` ergänzen (gleiches Muster wie
 die bestehenden `series-*`-Einträge), damit Google sie schneller findet.
+
+## Schriften (selbst gehostet)
+
+Die drei Schriften (Inter, Playfair Display, Cormorant Garamond) liegen als
+eigene Dateien im `fonts/`-Ordner statt über `fonts.googleapis.com` geladen zu
+werden. Der Vorteil: der Browser des Besuchers baut keine Verbindung zu
+Google auf, wodurch dafür auch **kein Cookie-Banner/Einwilligung nötig ist**
+(anders als bei der eingebundenen Google-Fonts-Variante).
+
+Das war's — nichts zu tun, außer die 6 `.woff2`-Dateien und die
+`@font-face`-Regeln ganz oben in `style.css` unangetastet zu lassen. Nur falls
+du irgendwann eine **weitere** Schriftstärke oder eine ganz neue Schriftart
+brauchst, müsste die als zusätzliche `.woff2`-Datei + `@font-face`-Regel
+ergänzt werden (dabei gerne nochmal melden).
 
 ## Favicon (Browser-Tab-Icon) ändern
 
