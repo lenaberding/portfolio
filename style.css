@@ -313,6 +313,19 @@
   .legal h2 { font-size: 30px; margin-bottom: 26px; }
   .legal h3 { font-size: 16px; margin: 26px 0 8px; }
   .legal p { font-size: 13.5px; line-height: 1.9; color: var(--ink-soft); max-width: 640px; }
+.legal ul,
+.legal ol {
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.legal li {
+  margin-bottom: 8px;
+}
 
   /* ---------- footer ---------- */
   footer { background: var(--terracotta-deep); color: var(--cream); padding: 64px 0 30px; }
