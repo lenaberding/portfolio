@@ -280,6 +280,7 @@
     display:block; position: relative; border-radius: 2px; overflow:hidden; background: var(--cream-2);
   }
   .masonry-item img { width:100%; height:auto; display:block; transition: transform .5s ease; }
+.masonry-item video { width:100%; height:auto; display:block; }
   .masonry-item:hover img, .masonry-item:focus-visible img { transform: scale(1.045); }
   .masonry-overlay {
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
