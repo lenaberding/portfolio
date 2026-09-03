@@ -132,6 +132,28 @@ function copyEmail(btn, email){
   }
 }
 
+// E-Mail-Adresse erst zur Laufzeit aus zwei Teilen zusammensetzen, damit sie nirgendwo
+// als fertiger String im Quellcode steht (Schutz gegen simple Scraper-Bots, die HTML/Text
+// nach E-Mail-Mustern durchsuchen — auch auf GitHub selbst). Betrifft alle Elemente mit
+// data-email-user/data-email-domain (Menü-Links, Footer-Links, Copy-Button in den
+// "Let's talk"-Sektionen, Impressum/Datenschutz-Kontaktzeile).
+function initEmailProtection() {
+  document.querySelectorAll('[data-email-user]').forEach(function (el) {
+    const address = el.dataset.emailUser + '@' + el.dataset.emailDomain;
+
+    if (el.tagName === 'A' && !el.getAttribute('href')) {
+      el.href = 'mailto:' + address;
+    }
+    if (el.children.length === 0 && el.textContent.trim() === '') {
+      el.textContent = address;
+    }
+    if (el.classList.contains('copy-btn')) {
+      el.addEventListener('click', function () { copyEmail(el, address); });
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', initEmailProtection);
+
 // FAQ-Daten für die Live-Fashion-Illustration-Seite.
 // Frage/Antwort hier anpassen, hinzufügen oder entfernen.
 const faqData = [

@@ -55,8 +55,8 @@ Text dazwischen ändern.
 **E-Mail-Adresse:** kommt an zwei Stellen im selben Block vor (sichtbarer Text +
 im `onclick`) — immer beide ändern:
 ```html
-<span class="email-text">studio@lenaberding.com</span>
-<button class="copy-btn" onclick="copyEmail(this, 'studio@lenaberding.com')">…</button>
+<span class="email-text" data-email-user="studio" data-email-domain="lenaberding.com"></span>
+<button class="copy-btn" data-email-user="studio" data-email-domain="lenaberding.com">…</button>
 ```
 
 **FAQ-Fragen** stehen nicht in den HTML-Dateien, sondern in `script.js`, in der
@@ -227,7 +227,7 @@ korrekt zuordnet) — bei Bedarf einfach melden.
 
 - Platzhalter-Domain `your-domain-here.com` überall ersetzen (siehe oben)
 - Links bei den Firmennamen auf der About-Seite (`href="#"`) durch echte URLs ersetzen
-- LinkedIn- und Pinterest-Links (Menü, Footer) durch echte Profil-URLs ersetzen
+
 - Impressum: `[Straße, Hausnummer]`, `[PLZ, Ort]` und ggf. USt-ID eintragen
 - Datenschutzerklärung: von einem Generator (z. B. eRecht24) oder einer
   Anwältin/einem Anwalt final prüfen lassen, bevor die Seite live geht
