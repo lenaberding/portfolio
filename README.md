@@ -19,7 +19,7 @@ impressum.html                  → Impressum (Deutsch)
 datenschutz.html                → Datenschutzerklärung (Deutsch)
 
 style.css                       → Farben, Abstände, Layout (für alle Seiten gemeinsam)
-script.js                       → Menü, FAQ-Klappliste, "E-Mail kopieren"
+script.js                       → Menü, "E-Mail kopieren"
 
 images/                         → alle Fotos/Illustrationen
 videos/                         → Videos (Home-Hero, Making-of der Hochzeitseinladung)
@@ -55,8 +55,11 @@ zusammengesetzt. Bei einer Änderung an allen Stellen beide Attribute anpassen
 <button class="copy-btn" data-email-user="studio" data-email-domain="lenaberding.com">…</button>
 ```
 
-**FAQ-Fragen** stehen nicht in den HTML-Dateien, sondern in `script.js`, in der
-Liste `faqData` ganz unten — Frage/Antwort dort hinzufügen, ändern, entfernen.
+**FAQ-Fragen** stehen direkt in `live-fashion-illustration.html`, je Frage ein
+`<details>`-Block (Frage im `<summary>`, Antwort darunter). Wer eine Frage
+hinzufügt, ändert oder entfernt, passt sie auch im `FAQPage`-Block
+(`<script type="application/ld+json">`) im `<head>` derselben Datei an, damit
+Google dieselben Fragen sieht.
 
 **Jede Seite hat eigene SEO-Texte** ganz oben im `<head>`:
 ```html
