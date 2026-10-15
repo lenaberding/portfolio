@@ -1,28 +1,34 @@
 # Lena Berding — Website
 
-Sechs eigenständige Seiten, technisch für Google & KI-Suchmaschinen vorbereitet,
-bereit für GitHub Pages.
+Statische Portfolio-Seite, technisch für Google & KI-Suchmaschinen vorbereitet,
+gehostet über GitHub Pages unter [lenaberding.com](https://www.lenaberding.com/).
 
 ## Dateistruktur
 
 ```
 index.html                      → Home
 live-fashion-illustration.html  → Live Fashion Illustration
+live-personalization.html       → Live Personalization & Commissions
 editorial-illustration.html     → Editorial & Brand Illustration (Serien-Übersicht, Masonry-Galerie)
-series-*.html                   → Detailseiten der einzelnen Serien (Titel, Beschreibung, Bildergalerie)
+series-*.html                   → Detailseiten der einzelnen Serien (Titel, Beschreibung, Bildergalerie):
+                                   series-private-commission.html,
+                                   series-illustrated-wedding-invitation.html,
+                                   series-fashion-sketches.html
 about.html                      → About
 impressum.html                  → Impressum (Deutsch)
 datenschutz.html                → Datenschutzerklärung (Deutsch)
 
 style.css                       → Farben, Abstände, Layout (für alle Seiten gemeinsam)
-script.js                       → Menü, FAQ-Klappliste, "E-Mail kopieren"
+script.js                       → Menü, "E-Mail kopieren"
 
-images/                         → alle Fotos/Illustrationen (aktuell Platzhalter)
+images/                         → alle Fotos/Illustrationen
+videos/                         → Videos (Home-Hero, Making-of der Hochzeitseinladung)
 fonts/                          → selbst gehostete Schriftdateien (kein Google-Fonts-Aufruf,
                                    dadurch kein Cookie-Banner dafür nötig) + Lizenztexte (OFL-*.txt)
 favicon.ico, favicon-*.png,
 apple-touch-icon.png, android-*.png,
 site.webmanifest                → Browser-Tab-Icon (aktuell "LB"-Monogramm)
+CNAME                           → eigene Domain für GitHub Pages (lenaberding.com)
 
 robots.txt                      → erlaubt Google, Bing und KI-Crawler (ChatGPT, Claude, Perplexity …)
 sitemap.xml                     → Liste aller Seiten für Suchmaschinen
@@ -30,21 +36,9 @@ llms.txt                        → Kurzbeschreibung der Seite für KI-Systeme
 ```
 
 Jede Seite ist jetzt eine eigene, echte HTML-Datei mit eigener Adresse
-(z. B. `deineseite.de/live-fashion-illustration.html`) — dadurch kann jede
+(z. B. `lenaberding.com/live-fashion-illustration.html`) — dadurch kann jede
 Unterseite einzeln bei Google ranken, einzeln geteilt und verlinkt werden,
 und der Zurück-Button im Browser funktioniert normal.
-
-## ⚠️ Erster Schritt: Domain eintragen
-
-In allen Dateien steht aktuell der Platzhalter `your-domain-here.com`. Sobald
-deine echte Domain feststeht, in VS Code **„In Dateien suchen und ersetzen"**
-nutzen (Tastenkürzel `Strg/Cmd + Shift + H`):
-
-- Suchen: `your-domain-here.com`
-- Ersetzen durch: deine echte Domain, z. B. `lenaberding.com`
-- „Alle ersetzen" klicken
-
-Das betrifft: `index.html`, alle Unterseiten, `robots.txt`, `sitemap.xml`, `llms.txt`.
 
 ## Texte ändern
 
@@ -52,15 +46,20 @@ Das betrifft: `index.html`, alle Unterseiten, `robots.txt`, `sitemap.xml`, `llms
 änderbaren Textblock. Tags (`<h1>`, `<p class="lead">` …) stehen lassen, nur den
 Text dazwischen ändern.
 
-**E-Mail-Adresse:** kommt an zwei Stellen im selben Block vor (sichtbarer Text +
-im `onclick`) — immer beide ändern:
+**E-Mail-Adresse:** steht nirgends ausgeschrieben im HTML (Schutz vor Spam-Bots),
+sondern wird von `script.js` aus `data-email-user` + `data-email-domain`
+zusammengesetzt. Bei einer Änderung an allen Stellen beide Attribute anpassen
+(Suchen nach `data-email-user`):
 ```html
 <span class="email-text" data-email-user="studio" data-email-domain="lenaberding.com"></span>
 <button class="copy-btn" data-email-user="studio" data-email-domain="lenaberding.com">…</button>
 ```
 
-**FAQ-Fragen** stehen nicht in den HTML-Dateien, sondern in `script.js`, in der
-Liste `faqData` ganz unten — Frage/Antwort dort hinzufügen, ändern, entfernen.
+**FAQ-Fragen** stehen direkt in `live-fashion-illustration.html`, je Frage ein
+`<details>`-Block (Frage im `<summary>`, Antwort darunter). Wer eine Frage
+hinzufügt, ändert oder entfernt, passt sie auch im `FAQPage`-Block
+(`<script type="application/ld+json">`) im `<head>` derselben Datei an, damit
+Google dieselben Fragen sieht.
 
 **Jede Seite hat eigene SEO-Texte** ganz oben im `<head>`:
 ```html
@@ -73,7 +72,7 @@ Seiteninhalt deutlich ändert.
 
 ## Bilder austauschen
 
-Wie gehabt: neue Datei mit **exakt demselben Dateinamen** in `images/` legen
+Neue Datei mit **exakt demselben Dateinamen** in `images/` legen
 und die Platzhalter-Datei überschreiben.
 
 Die Dateinamen sind diesmal bewusst mit Suchbegriffen versehen (z. B.
@@ -94,15 +93,25 @@ dann aber das `src="images/…"` an der jeweiligen Stelle im HTML mit anpassen.
 | `private-commission-wedding-invitation.jpg` | Serie "Private Commissions", Bild 1 | beliebiges Format |
 | `private-commission-couple-portrait.jpg` | Serie "Private Commissions", Bild 2 | beliebiges Format |
 | `fashion-sketches-01.jpg`, `…-02.jpg`, `…-03.jpg` | Serie "Fashion Sketches" | beliebiges Format |
+| `illustrated-wedding-invitation-cover.jpg` | Editorial-Galerie, Cover "Illustrated Wedding Invitation" (+ Vorschaubild beim Teilen) | beliebiges Format |
+| `illustrated-wedding-invitation-01.jpg` bis `…-03.jpg` | Serie "Illustrated Wedding Invitation" | beliebiges Format |
 | `fashion-illustrator-lena-berding-about.jpg` | About-Seite, Hero rechts | Hochformat 3:4 |
+
+**Videos** liegen in `videos/` und werden genauso ausgetauscht (gleicher Dateiname):
+
+| Datei | Verwendung |
+|---|---|
+| `home-hero.mp4` | Home, Hero rechts (läuft stumm in Schleife, Standbild davor: `live-fashion-illustration-hero.jpg`) |
+| `illustrated-wedding-invitation-process.mp4` | Serie "Illustrated Wedding Invitation", Making-of-Video |
 
 **Wichtig für Ladezeit:** Fotos vor dem Hochladen komprimieren (z. B. mit
 [squoosh.app](https://squoosh.app), kostenlos) — Zielgröße ca. 150–400 KB pro Bild,
 nicht mehrere MB direkt vom Handy/der Kamera.
 
 **Jede Datei gehört nur einer Stelle:** Jedes Bild in der Tabelle oben wird nur an
-genau einer Stelle verwendet (Ausnahme: die beiden Serien-Cover erscheinen
-zusätzlich als Vorschaubild, wenn die jeweilige Serien-Seite geteilt wird — das
+genau einer Stelle verwendet (Ausnahme: die Serien-Cover erscheinen
+zusätzlich als Vorschaubild, wenn die jeweilige Serien-Seite geteilt wird, und
+`live-fashion-illustration-hero.jpg` dient zusätzlich als Standbild des Home-Videos — das
 ist dieselbe Serie, kein Konflikt). Du kannst also jedes Bild einzeln ersetzen,
 ohne dass sich dadurch ungewollt ein Foto an einer anderen Stelle mitändert.
 
@@ -159,39 +168,39 @@ in dieselben Dateinamen exportieren und die bestehenden Dateien im Root-Ordner
 überschreiben: `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`,
 `apple-touch-icon.png`, `android-chrome-192x192.png`, `android-chrome-512x512.png`.
 
-## Auf GitHub Pages veröffentlichen
+## Änderungen veröffentlichen
 
-1. Neues Repository auf GitHub anlegen.
-2. Alle Dateien aus diesem Ordner (nicht den Ordner selbst) per Drag & Drop hochladen.
-3. **Settings → Pages** → Branch `main`, Ordner `/ (root)` → Save.
-4. Seite ist nach 1–2 Minuten live unter `https://DEIN-BENUTZERNAME.github.io/REPO-NAME/`.
+Die Seite läuft über GitHub Pages direkt aus dem Branch `main` (Ordner `/ (root)`).
+Jede Änderung, die auf `main` landet, ist nach 1–2 Minuten live auf
+[lenaberding.com](https://www.lenaberding.com/).
 
-## Domain von IONOS verbinden
+## Domain (IONOS) — zum Nachschlagen
 
-**Bei GitHub:** Settings → Pages → „Custom domain" → deine Domain eintragen, Save.
+Ist bereits eingerichtet; nur relevant, falls die Verbindung mal neu aufgesetzt werden muss.
+
+**Bei GitHub:** Settings → Pages → „Custom domain" → `lenaberding.com` eintragen, Save.
 (Legt automatisch eine `CNAME`-Datei im Repo an.)
 
 **Bei IONOS** (Domains & SSL → DNS):
-- Ohne `www` (`lenaberding.com`): vier **A-Records** auf `@`:
+- Ohne `www`: vier **A-Records** auf `@`:
   ```
   185.199.108.153
   185.199.109.153
   185.199.110.153
   185.199.111.153
   ```
-- Mit `www` (`www.lenaberding.com`): **CNAME-Record** auf `www`, Ziel:
-  `DEIN-BENUTZERNAME.github.io`
+- Mit `www`: **CNAME-Record** auf `www`, Ziel: `lenaberding.github.io`
 
 Beides gleichzeitig einrichten empfohlen. DNS braucht 10 Min. bis mehrere Stunden.
 Danach bei GitHub Pages **„Enforce HTTPS"** aktivieren, sobald anklickbar.
 
-## Nach dem Go-Live: Suchmaschinen anmelden
+## Suchmaschinen anmelden
 
 Diese Schritte sorgen dafür, dass Google & Bing die Seite überhaupt finden:
 
 1. **Google Search Console** ([search.google.com/search-console](https://search.google.com/search-console)):
    Domain hinzufügen, Eigentum bestätigen (Anleitung dort), dann unter
-   „Sitemaps" die URL `https://deine-domain.de/sitemap.xml` einreichen.
+   „Sitemaps" die URL `https://www.lenaberding.com/sitemap.xml` einreichen.
 2. **Bing Webmaster Tools** ([bing.com/webmasters](https://www.bing.com/webmasters)):
    gleiches Prinzip, deckt zusätzlich ChatGPT-Suche ab (die nutzt teilweise Bing-Daten).
 
@@ -215,7 +224,7 @@ korrekt zuordnet) — bei Bedarf einfach melden.
 - `robots.txt` mit expliziter Freigabe für KI-Crawler (GPTBot, ClaudeBot, PerplexityBot,
   Google-Extended u. a.), damit die Seite auch in ChatGPT-/Perplexity-Antworten
   auftauchen kann
-- `sitemap.xml` mit allen sechs Seiten
+- `sitemap.xml` mit allen Seiten (inkl. Serien-Detailseiten, Impressum, Datenschutz)
 - `llms.txt` — eine kurze, strukturierte Zusammenfassung der Seite speziell für
   KI-Systeme (neuer, noch nicht von allen Anbietern genutzter Standard, aber
   kostet nichts und schadet nicht)
@@ -225,10 +234,8 @@ korrekt zuordnet) — bei Bedarf einfach melden.
 
 ## Noch offen / bitte prüfen
 
-- Platzhalter-Domain `your-domain-here.com` überall ersetzen (siehe oben)
-- Links bei den Firmennamen auf der About-Seite (`href="#"`) durch echte URLs ersetzen
-
-- Impressum: `[Straße, Hausnummer]`, `[PLZ, Ort]` und ggf. USt-ID eintragen
+- `series-illustrated-wedding-invitation.html` verweist beim Making-of-Video auf
+  das Standbild `images/illustrated-wedding-invitation-video-poster.jpg`, das im
+  Repo noch fehlt — Bild ergänzen oder das `poster`-Attribut entfernen
 - Datenschutzerklärung: von einem Generator (z. B. eRecht24) oder einer
-  Anwältin/einem Anwalt final prüfen lassen, bevor die Seite live geht
-- Platzhalter-Bilder durch echte, komprimierte Fotos ersetzen
+  Anwältin/einem Anwalt final prüfen lassen, falls noch nicht geschehen
