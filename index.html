@@ -95,9 +95,9 @@
       </div>
       <!-- BILD AUSTAUSCHEN: images/live-fashion-illustration-hero.jpg (empfohlen ca. 900×1200px, Hochformat) -->
       <div class="hero-figure">
-  <video autoplay muted loop playsinline poster="images/live-fashion-illustration-hero.jpg" width="900" height="1200">
-    <source src="videos/home-hero.mp4" type="video/mp4">
-  </video>
+  <!-- VIDEO: videos/home-hero.mp4 — wird nur auf größeren Bildschirmen geladen (siehe script.js),
+       auf dem Handy bleibt das Standbild (poster) stehen -->
+  <video class="hero-video" muted loop playsinline preload="none" poster="images/live-fashion-illustration-hero.jpg" width="900" height="1200" data-src="videos/home-hero.mp4"></video>
 </div>
     </div>
   </section>
