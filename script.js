@@ -7,6 +7,23 @@
   JavaScript-Seitenumschaltung mehr — normale Links reichen.
 */
 
+// ---------- Hero-Video (index.html) ----------
+// Das Video wird nur auf breiten Bildschirmen geladen und abgespielt. Auf dem
+// Handy, bei aktiviertem Datensparmodus oder wenn reduzierte Bewegung
+// gewünscht ist, bleibt das Standbild (poster) stehen und es werden keine
+// Videodaten heruntergeladen.
+(function () {
+  const video = document.querySelector('video.hero-video[data-src]');
+  if (!video) return;
+  const wide = window.matchMedia('(min-width: 901px)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (!wide || reducedMotion || saveData) return;
+  video.src = video.dataset.src;
+  video.autoplay = true;
+  video.play().catch(() => {});
+})();
+
 // ---------- Masonry-Galerie (editorial-illustration.html + series-*.html) ----------
 // Verteilt die Fotos automatisch auf gleich breite Spalten (2-3, je nach
 // Bildschirmbreite) — unabhängig vom Seitenverhältnis der einzelnen Fotos.
