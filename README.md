@@ -85,7 +85,7 @@ dann aber das `src="images/…"` an der jeweiligen Stelle im HTML mit anpassen.
 |---|---|---|
 | `live-fashion-illustration-hero.jpg` | Home, Hero rechts | Hochformat 3:4 |
 | `fashion-illustrator-lena-berding-portrait.jpg` | Home, About-Teaser | Hochformat 3:4 |
-| `live-illustration-brand-activation.jpg` | Live-Seite, Hero rechts | Hochformat 3:4 |
+| `hero-guest-sketches-1.jpg`, `…-4.jpg`, `hero-guest-sketches-3-detail.jpg`, `hero-guest-sketches-2.jpg` | Live-Seite, Hero-Collage (2×2) | Hochformat 3:4 |
 | `fashion-sketch-live-drawing-event.jpg` | Live-Seite, "The magic of…" | Hochformat 4:5 |
 | `live-fashion-illustration-photo-strip-1.jpg` bis `…-5.jpg` | Live-Seite, Fotoreihe bei "The most personal gift…" | beliebiges Format |
 | `editorial-fashion-illustration-lena-berding.jpg` | Editorial-Seite, Hero rechts | Hochformat 3:4 |
