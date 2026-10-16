@@ -216,8 +216,7 @@
   .magic h2 { font-size: 30px; margin-bottom: 18px; }
 
   /* ---------- quote section ---------- */
-  .quote-section { text-align:center; padding: 0 0 64px; }
-  @media (max-width:700px){ .quote-section { padding-bottom: 48px; } }
+  .quote-section { text-align:center; padding: 0; }
   .quote-section > :first-child { margin-top: 0; }
   .quote-section blockquote {
     font-family:'Playfair Display', serif; font-style: italic; font-size: 32px; line-height:1.4;
