@@ -29,7 +29,7 @@
 
 <!-- Schriften werden selbst gehostet (fonts/-Ordner + @font-face in style.css) —
      kein Aufruf an Google-Server, daher kein Cookie-Banner dafür nötig. -->
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=9">
 
 <script type="application/ld+json">
 {
@@ -76,11 +76,19 @@
 <main>
 
   <section class="band-terracotta">
-    <div class="wrap hero">
+    <div class="wrap hero hero-center-mobile">
       <div>
         <!-- TEXT: Live-Hero -->
-        <h1 style="font-size:42px;">Invite me to run a live illustration event for your brand.</h1>
-        <p class="lead">For store openings, launches, and brand activation.</p>
+        <h1 style="font-size:42px;">Invite me to run a <span class="acc">live illustration</span> event for your brand.</h1>
+        <p class="lead">For store openings, launches, and brand activations.</p>
+        <!-- HERO-CTA: E-Mail wie unten über data-email-user/-domain -->
+        <div class="hero-cta">
+          <span class="hero-cta-label">Enquire <span class="arrow" aria-hidden="true">→</span></span>
+          <div class="email-pill">
+            <span class="email-text" data-email-user="studio" data-email-domain="lenaberding.com"></span>
+            <button class="copy-btn" data-email-user="studio" data-email-domain="lenaberding.com"><span class="copy-label">Copy</span></button>
+          </div>
+        </div>
       </div>
       <!-- HERO-COLLAGE: 4 Fotos im 2×2-Raster. Reihenfolge = oben links, oben rechts, unten links, unten rechts. -->
       <div class="hero-grid">
@@ -181,11 +189,6 @@ Optionally, I create a custom event illustration or digitise selected sketches a
   </section>
 
   <section class="band-deep quote-section">
-    <div class="wrap">
-      <!-- TEXT: Zitat -->
-      <blockquote>The most personal gift:<br>Being seen as a work of art.</blockquote>
-    </div>
-
     <!-- FOTOREIHE — mehrere Fotos in einer Reihe, gleiche Höhe, unterschiedliche Breite
          je nach Format. Läuft bewusst über die volle Breite (liegt deshalb außerhalb
          von .wrap). Auf dem Handy wird die Reihe waagerecht weggewischt statt
@@ -221,7 +224,7 @@ Optionally, I create a custom event illustration or digitise selected sketches a
 
   <section class="cta-section on-light">
     <div class="wrap">
-      <h2>Have a question?</h2>
+      <h2>Tell me what you’re planning.</h2>
       <p class="lead">Drop me an email (German or English). I usually respond within a few hours.</p>
       <div class="email-pill">
         <!-- TEXT: E-Mail — an BEIDEN Stellen ändern -->
@@ -268,6 +271,6 @@ Optionally, I create a custom event illustration or digitise selected sketches a
   </div>
 </footer>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>
