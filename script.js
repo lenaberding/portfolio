@@ -1,8 +1,8 @@
 /*
   Lena Berding — Website Script
   -------------------------------
-  Steuert das Hamburger-Menü, das FAQ-Akkordeon (nur auf
-  live-fashion-illustration.html) und den "E-Mail kopieren"-Button.
+  Steuert das Hamburger-Menü und den "E-Mail kopieren"-Button.
+  Die FAQ stehen direkt im HTML von live-fashion-illustration.html.
   Da jede Seite jetzt eine eigene HTML-Datei ist, braucht es keine
   JavaScript-Seitenumschaltung mehr — normale Links reichen.
 */
@@ -102,22 +102,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('overlay');
   const burgerBtn = document.getElementById('burgerBtn');
   const overlayClose = document.getElementById('overlayClose');
+  if (!overlay || !burgerBtn) return;
 
-  function openMenu(){ overlay.classList.add('open'); }
-  function closeMenu(){ overlay.classList.remove('open'); }
+  function openMenu(){
+    overlay.classList.add('open');
+    burgerBtn.setAttribute('aria-expanded', 'true');
+    // kurz warten, bis das Menü sichtbar ist — erst dann lässt sich der Fokus setzen
+    setTimeout(() => { if (overlayClose) overlayClose.focus(); }, 50);
+  }
+  function closeMenu(){
+    if (!overlay.classList.contains('open')) return;
+    overlay.classList.remove('open');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+    burgerBtn.focus();
+  }
 
-  if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
+  burgerBtn.addEventListener('click', openMenu);
   if (overlayClose) overlayClose.addEventListener('click', closeMenu);
+
+  // Menü mit der Escape-Taste schließen; Tab-Taste bleibt im offenen Menü
+  document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeMenu(); return; }
+    if (e.key !== 'Tab') return;
+    const focusable = overlay.querySelectorAll('a[href], button');
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
 
   // Menü schließen, wenn ein Link darin angeklickt wird (bevor die neue Seite lädt)
   document.querySelectorAll('.overlay-links a, .overlay-quick a').forEach(a => {
     a.addEventListener('click', closeMenu);
-  });
-
-  // FAQ-Akkordeon (nur vorhanden auf live-fashion-illustration.html)
-  document.addEventListener('click', (e) => {
-    const item = e.target.closest('.faq-item');
-    if (item) item.classList.toggle('open');
   });
 });
 
@@ -170,27 +186,3 @@ function initEmailProtection() {
   });
 }
 document.addEventListener('DOMContentLoaded', initEmailProtection);
-
-// FAQ-Daten für die Live-Fashion-Illustration-Seite.
-// Frage/Antwort hier anpassen, hinzufügen oder entfernen.
-const faqData = [
-  ["What's the ideal guest number or event size?", "It works for events of any size. It can be an intimate VIP evening where every guest receives a sketch, or a larger event where I draw as many guests as possible within a set time window. Depending on your creative needs and number of guests, the amount of illustrations can vary from 8-12 per hour (3-5 mins per illustration). I recommend bookings of at least 3 hours."],
-  ["What kind of illustrations will be created?", "I create expressive fashion sketches that focus on silhouette and personality. I usually draw in ink and colored pencil on A6 or A5 fine art paper. The paper can be customized for your event. This could include your logo, event details, a custom illustration, fabric samples, lipstick swatches, pressed flowers ... Let's talk about the different ways you can make your brand stand out."],
-  ["What do you need on the day?", "A good sized table, a chair and decent lighting. I bring everything else. On the day of your event, I will arrive 30-45 mins earlier to set up before the event begins."],
-  ["How are events priced?", "Pricing is based on an hourly rate + travel expenses if applicable. Travel within Berlin and the surrounding is free. Get in touch with your event details, and I’ll put together an offer tailored to your needs."],
-  ["How do I book?", "Send me your event details to check availability and receive a tailored quote. If you’d like to go ahead, I’ll hold your date for 14 days while we finalize the details. Your booking is confirmed once I’ve received the signed contract and a 30% deposit."],
-  ["What's it like to work with you?", "I'm easy to work with and I know how to read a room. I speak German, English, Spanish, and Russian, and adapt easily to different guests and event settings. My goal is to make the process feel effortless for everyone."],
-  ["What types of events is it suited for?", "<ul><li>Seasonal in-store promotions, like Christmas or Valentine’s Day</li><li>Product and collection launches</li><li>Influencer events</li><li>VIP dinners, exclusive customer events</li><li>Popups and brand activations</li></ul>"],
-  ["Is live illustration a good fit for my brand?", "Yes, especially if your brand has a creative spirit. Live illustration is a great fit for:<ul><li>Fashion, beauty, jewelry, food, and lifestyle brands</li><li>Brands that love collaborating with artists and independent creatives</li><li>Brands looking to make their events stand out</li></ul>"]
-];
-
-document.addEventListener('DOMContentLoaded', () => {
-  const faqList = document.getElementById('faqList');
-  if (!faqList) return; // Seite ohne FAQ-Section — nichts zu tun
-  faqData.forEach(([q, a]) => {
-    const item = document.createElement('div');
-    item.className = 'faq-item';
-    item.innerHTML = `<div class="faq-q"><span>${q}</span><span class="plus">+</span></div><div class="faq-a">${a}</div>`;
-    faqList.appendChild(item);
-  });
-});
