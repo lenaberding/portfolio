@@ -442,8 +442,8 @@
 
 /* ---------- Hero-CTA (Live-Seite): "Enquire →" + E-Mail-Pill ---------- */
 .hero-cta { margin-top: 30px; display:flex; flex-wrap:wrap; align-items:center; gap: 14px 18px; }
-.hero-cta-label { font-weight: 700; font-size: 15px; letter-spacing: 0.02em; display:inline-flex; align-items:center; gap: 10px; }
-.hero-cta-label .arrow { font-size: 20px; line-height: 1; }
+.hero-cta-label { font-weight: 700; font-size: 21px; letter-spacing: 0.02em; display:inline-flex; align-items:center; gap: 10px; }
+.hero-cta-label .arrow { font-size: 24px; line-height: 1; }
 .hero .email-pill { margin-top: 0; color: var(--cream); }
 .hero .copy-btn:hover { background: var(--cream); color: var(--terracotta-deep); }
-@media (max-width:600px){ .hero-cta-label .arrow { transform: rotate(90deg); } .hero .email-pill .email-text, .hero .email-pill .copy-btn { padding: 12px 16px; } .hero .email-pill .email-text { font-size: 13px; } }
+@media (max-width:600px){ .hero-cta { flex-direction:column; align-items:center; gap: 12px; margin-top: 36px; } .hero-cta-label .arrow { transform: rotate(90deg); } .hero .email-pill .email-text, .hero .email-pill .copy-btn { padding: 12px 16px; } .hero .email-pill .email-text { font-size: 13px; } }
