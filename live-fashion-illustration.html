@@ -29,7 +29,7 @@
 
 <!-- Schriften werden selbst gehostet (fonts/-Ordner + @font-face in style.css) —
      kein Aufruf an Google-Server, daher kein Cookie-Banner dafür nötig. -->
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v=16">
 
 <script type="application/ld+json">
 {
@@ -45,20 +45,92 @@
   "url": "https://www.lenaberding.com/live-fashion-illustration.html"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the ideal guest number or event size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It works for events of any size. It can be an intimate VIP evening where every guest receives a sketch, or a larger event where I draw as many guests as possible within a set time window. Depending on your creative needs and number of guests, the amount of illustrations can vary from 8-12 per hour (3-5 mins per illustration). I recommend bookings of at least 3 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of illustrations will be created?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I create expressive fashion sketches that focus on silhouette and personality. I usually draw in ink and colored pencil on A6 or A5 fine art paper. The paper can be customized for your event. This could include your logo, event details, a custom illustration, fabric samples, lipstick swatches, pressed flowers ... Let's talk about the different ways you can make your brand stand out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do you need on the day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A good sized table, a chair and decent lighting. I bring everything else. On the day of your event, I will arrive 30-45 mins earlier to set up before the event begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are events priced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pricing is based on an hourly rate + travel expenses if applicable. Travel within Berlin and the surrounding is free. Get in touch with your event details, and I’ll put together an offer tailored to your needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Send me your event details to check availability and receive a tailored quote. If you’d like to go ahead, I’ll hold your date for 14 days while we finalize the details. Your booking is confirmed once I’ve received the signed contract and a 30% deposit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's it like to work with you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I'm easy to work with and I know how to read a room. I speak German, English, Spanish, and Russian, and adapt easily to different guests and event settings. My goal is to make the process feel effortless for everyone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of events is it suited for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seasonal in-store promotions, like Christmas or Valentine’s Day; Product and collection launches; Influencer events; VIP dinners, exclusive customer events; Popups and brand activations"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is live illustration a good fit for my brand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, especially if your brand has a creative spirit. Live illustration is a great fit for: Fashion, beauty, jewelry, food, and lifestyle brands; Brands that love collaborating with artists and independent creatives; Brands looking to make their events stand out"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <header>
   <div class="headbar wrap">
     <a class="logo" href="index.html">Lena Berding</a>
-    <div class="burger" id="burgerBtn" aria-label="Menü öffnen">
+    <button type="button" class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="overlay">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
 </header>
 
-<div class="overlay" id="overlay">
-  <button class="overlay-close" id="overlayClose" aria-label="Menü schließen">&times;</button>
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Menu">
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Close menu">&times;</button>
   <nav class="overlay-links">
     <a href="index.html">Home</a>
     <a href="live-fashion-illustration.html" aria-current="page">Live Fashion Illustration</a>
@@ -216,8 +288,43 @@ Optionally, I create a custom event illustration or digitize selected sketches a
   <section class="band-deep">
     <div class="wrap">
       <h2 style="font-size:28px;">FAQ</h2>
-      <!-- FAQ-Fragen/Antworten werden in script.js in der Liste "faqData" gepflegt -->
-      <div id="faqList" style="margin-top:20px;"></div>
+      <!-- TEXT: FAQ — jede Frage ist ein <details>-Block: Frage im <summary>, Antwort im <div class="faq-a">.
+           Zum Hinzufügen einen kompletten Block kopieren. Wichtig: Fragen/Antworten auch oben im <head>
+           im FAQ-Schema ("FAQPage") anpassen, damit Google dieselben Texte sieht. -->
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q"><span>What's the ideal guest number or event size?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-a"><p>It works for events of any size. It can be an intimate VIP evening where every guest receives a sketch, or a larger event where I draw as many guests as possible within a set time window. Depending on your creative needs and number of guests, the amount of illustrations can vary from 8-12 per hour (3-5 mins per illustration). I recommend bookings of at least 3 hours.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>What kind of illustrations will be created?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-a"><p>I create expressive fashion sketches that focus on silhouette and personality. I usually draw in ink and colored pencil on A6 or A5 fine art paper. The paper can be customized for your event. This could include your logo, event details, a custom illustration, fabric samples, lipstick swatches, pressed flowers ... Let's talk about the different ways you can make your brand stand out.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>What do you need on the day?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-a"><p>A good sized table, a chair and decent lighting. I bring everything else. On the day of your event, I will arrive 30-45 mins earlier to set up before the event begins.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>How are events priced?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-a"><p>Pricing is based on an hourly rate + travel expenses if applicable. Travel within Berlin and the surrounding is free. Get in touch with your event details, and I’ll put together an offer tailored to your needs.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>How do I book?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-a"><p>Send me your event details to check availability and receive a tailored quote. If you’d like to go ahead, I’ll hold your date for 14 days while we finalize the details. Your booking is confirmed once I’ve received the signed contract and a 30% deposit.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>What's it like to work with you?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-a"><p>I'm easy to work with and I know how to read a room. I speak German, English, Spanish, and Russian, and adapt easily to different guests and event settings. My goal is to make the process feel effortless for everyone.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>What types of events is it suited for?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-a"><ul><li>Seasonal in-store promotions, like Christmas or Valentine’s Day</li><li>Product and collection launches</li><li>Influencer events</li><li>VIP dinners, exclusive customer events</li><li>Popups and brand activations</li></ul></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q"><span>Is live illustration a good fit for my brand?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Yes, especially if your brand has a creative spirit. Live illustration is a great fit for:<ul><li>Fashion, beauty, jewelry, food, and lifestyle brands</li><li>Brands that love collaborating with artists and independent creatives</li><li>Brands looking to make their events stand out</li></ul></div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -269,6 +376,6 @@ Optionally, I create a custom event illustration or digitize selected sketches a
   </div>
 </footer>
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
