@@ -29,7 +29,7 @@
 
 <!-- Schriften werden selbst gehostet (fonts/-Ordner + @font-face in style.css) —
      kein Aufruf an Google-Server, daher kein Cookie-Banner dafür nötig. -->
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 
 <script type="application/ld+json">
 {
@@ -81,6 +81,14 @@
         <!-- TEXT: Live-Hero -->
         <h1 style="font-size:42px;">Invite me to run a live illustration event for your brand.</h1>
         <p class="lead">For store openings, launches, and brand activation.</p>
+        <!-- HERO-CTA: E-Mail wie unten über data-email-user/-domain -->
+        <div class="hero-cta">
+          <span class="hero-cta-label">Enquire <span class="arrow" aria-hidden="true">→</span></span>
+          <div class="email-pill">
+            <span class="email-text" data-email-user="studio" data-email-domain="lenaberding.com"></span>
+            <button class="copy-btn" data-email-user="studio" data-email-domain="lenaberding.com"><span class="copy-label">Copy</span></button>
+          </div>
+        </div>
       </div>
       <!-- HERO-COLLAGE: 4 Fotos im 2×2-Raster. Reihenfolge = oben links, oben rechts, unten links, unten rechts. -->
       <div class="hero-grid">
