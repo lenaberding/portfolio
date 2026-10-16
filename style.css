@@ -62,7 +62,8 @@
     --cream-2: #ECE4D8;
     --ink: #3A2A1E;
     --ink-soft: #6B4630;
-    --gold: #F0C9A0;
+    --gold: #EED98F; /* Buttergelb: Akzentfarbe auf Terracotta */
+    --butter: #EED98F;
     --line: rgba(58,42,30,0.15);
   }
   * { box-sizing: border-box; margin:0; padding:0; }
@@ -449,3 +450,27 @@
 .hero .copy-btn:hover { background: var(--cream); color: var(--terracotta-deep); }
 @media (max-width:600px){ .hero-cta { flex-direction:column; align-items:center; gap: 12px; margin-top: 36px; } .hero-cta-label .arrow { transform: rotate(90deg); } .hero .email-pill .email-text, .hero .email-pill .copy-btn { padding: 12px 16px; } .hero .email-pill .email-text { font-size: 13px; } }
 @media (max-width:600px){ .hero-center-mobile > div:first-child { text-align:center; } .hero-center-mobile h1, .hero-center-mobile p.lead { margin-left:auto; margin-right:auto; } }
+
+/* ---------- Buttergelb statt Dunkelbraun ----------
+   Flächen (About-Teaser, Fotoreihe/FAQ, Kontakt auf About, Footer) sind buttergelb
+   mit dunkler Schrift. Dazu taucht Buttergelb als Akzent auf Terracotta wieder auf
+   (Hero-Kursivwörter, Menü, Copy-Button-Hover, Textmarkierung). */
+.band-deep, footer { background: var(--butter); color: var(--ink); }
+.band-deep p.lead { color: var(--ink-soft); }
+.band-deep .offer-cta { color: var(--ink); border-color: var(--ink); }
+.band-deep .offer-cta:hover { background: var(--ink); color: var(--butter); }
+.faq-item { border-top-color: rgba(58,42,30,0.22); }
+.faq-item:last-child { border-bottom-color: rgba(58,42,30,0.22); }
+.faq-q { color: var(--ink); }
+.faq-q .plus { color: var(--terracotta); }
+.faq-a { color: var(--ink-soft); }
+.cta-section.on-dark .email-pill { color: var(--ink); }
+.cta-section.on-dark .copy-btn:hover { background: var(--ink); color: var(--butter); }
+.foot-col-title { color: var(--terracotta); }
+.foot-links a { color: var(--ink); }
+.foot-links a:hover { color: var(--terracotta); }
+.foot-bottom { border-top-color: rgba(58,42,30,0.2); color: var(--ink-soft); }
+.overlay { background: var(--terracotta); }
+.hero .copy-btn:hover, .band-terracotta .copy-btn:hover { background: var(--butter); color: var(--ink); border-color: var(--butter); }
+.hero-cta-label .arrow { color: var(--butter); }
+::selection { background: var(--butter); color: var(--ink); }
