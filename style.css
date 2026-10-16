@@ -480,18 +480,22 @@
 ::selection { background: var(--butter); color: var(--ink); }
 
 /* ---------- about: collage ---------- */
-.about-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr); gap: 64px; align-items: center; }
-.about-story-text .lead { max-width: 560px !important; }
-.collage { position: relative; aspect-ratio: 1 / 1.1; width: 100%; max-width: 400px; justify-self: center; }
+.about-story { display: flex; flex-direction: column; gap: 48px; }
+.about-story-text .lead { max-width: 640px !important; }
+.about-collage { position: relative; width: 100%; max-width: 860px; aspect-ratio: 3.2 / 1; margin-left: -1%; }
 .clip { position: absolute; margin: 0; background: #fff; padding: 6px; box-shadow: 0 1px 2px rgba(58,42,30,0.12), 0 8px 22px rgba(58,42,30,0.14); }
 .clip img { display: block; width: 100%; height: auto; }
 .clip.tape::before { content: ""; position: absolute; top: -9px; left: 50%; width: 56px; height: 18px; transform: translateX(-50%) rotate(-4deg); background: rgba(238,217,143,0.75); box-shadow: 0 1px 2px rgba(58,42,30,0.08); }
-.c1 { left: 0;   top: 3%;  width: 40%; transform: rotate(-3deg); z-index: 2; }
-.c2 { left: 46%; top: 0;   width: 46%; transform: rotate(4deg);  z-index: 3; }
-.c3 { left: 6%;  top: 44%; width: 38%; transform: rotate(2deg);  z-index: 1; }
-.c4 { left: 42%; top: 58%; width: 54%; transform: rotate(-3deg); z-index: 4; }
-@media (max-width: 900px) {
-  .about-story { grid-template-columns: 1fr; gap: 48px; }
-  .collage { max-width: 340px; margin: 0 auto; }
+.c1 { left: 3%;  top: 8%;  width: 21%; transform: rotate(-3deg); z-index: 2; }
+.c2 { left: 25%; top: 0;   width: 22%; transform: rotate(3deg);  z-index: 3; }
+.c3 { left: 49%; top: 6%;  width: 20%; transform: rotate(-2deg); z-index: 1; }
+.c4 { left: 68%; top: 18%; width: 29%; transform: rotate(3deg);  z-index: 4; }
+@media (max-width: 700px) {
+  .about-story { gap: 40px; }
+  .about-collage { aspect-ratio: 1 / 1.1; max-width: 340px; margin: 0 auto; }
+  .c1 { left: 0;   top: 3%;  width: 40%; transform: rotate(-3deg); }
+  .c2 { left: 46%; top: 0;   width: 46%; transform: rotate(4deg); }
+  .c3 { left: 6%;  top: 44%; width: 38%; transform: rotate(2deg); }
+  .c4 { left: 42%; top: 58%; width: 54%; transform: rotate(-3deg); }
 }
 @media (max-width: 600px) { .clip { padding: 4px; } .clip.tape::before { width: 40px; height: 13px; top: -7px; } }
