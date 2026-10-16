@@ -18,21 +18,21 @@
 
 <!-- Schriften werden selbst gehostet (fonts/-Ordner + @font-face in style.css) —
      kein Aufruf an Google-Server, daher kein Cookie-Banner dafür nötig. -->
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
 
 <header>
   <div class="headbar wrap">
     <a class="logo" href="index.html">Lena Berding</a>
-    <div class="burger" id="burgerBtn" aria-label="Menü öffnen">
+    <button type="button" class="burger" id="burgerBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="overlay">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
 </header>
 
-<div class="overlay" id="overlay">
-  <button class="overlay-close" id="overlayClose" aria-label="Menü schließen">&times;</button>
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Menü">
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Menü schließen">&times;</button>
   <nav class="overlay-links">
     <a href="index.html">Home</a>
     <a href="live-fashion-illustration.html">Live Fashion Illustration</a>
@@ -99,6 +99,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 </body>
 </html>
