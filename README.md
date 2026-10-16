@@ -9,7 +9,7 @@ gehostet über GitHub Pages unter [lenaberding.com](https://www.lenaberding.com/
 index.html                      → Home
 live-fashion-illustration.html  → Live Fashion Illustration
 live-personalization.html       → Live Personalization & Commissions
-editorial-illustration.html     → Editorial & Brand Illustration (Serien-Übersicht, Masonry-Galerie)
+editorial-illustration.html     → Editorial Illustration (Serien-Übersicht, Masonry-Galerie)
 series-*.html                   → Detailseiten der einzelnen Serien (Titel, Beschreibung, Bildergalerie):
                                    series-private-commission.html,
                                    series-illustrated-wedding-invitation.html,
