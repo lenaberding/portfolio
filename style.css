@@ -472,5 +472,4 @@
 .foot-bottom { border-top-color: rgba(58,42,30,0.2); color: var(--ink-soft); }
 .overlay { background: var(--terracotta); }
 .hero .copy-btn:hover, .band-terracotta .copy-btn:hover { background: var(--butter); color: var(--ink); border-color: var(--butter); }
-.hero-cta-label .arrow { color: var(--butter); }
 ::selection { background: var(--butter); color: var(--ink); }
