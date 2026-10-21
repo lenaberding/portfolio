@@ -492,8 +492,8 @@
 .overlay { background: var(--terracotta); }
 .hero .copy-btn:hover, .band-terracotta .copy-btn:hover { background: var(--butter); color: var(--ink); border-color: var(--butter); }
 ::selection { background: var(--butter); color: var(--ink); }
-/* Auf gelben Flächen (FAQ, Footer) wäre die gelbe Markierung unsichtbar, daher dort dunkel */
-.band-deep ::selection, footer ::selection { background: var(--ink); color: var(--butter); }
+/* Auf gelben Flächen (FAQ, Footer) wäre die gelbe Markierung unsichtbar, daher dort weiß */
+.band-deep ::selection, footer ::selection { background: #fff; color: var(--ink); }
 
 /* ---------- about: collage ---------- */
 .about-story { display: flex; flex-direction: column; gap: 48px; }
