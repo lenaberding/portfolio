@@ -8,7 +8,7 @@ gehostet über GitHub Pages unter [lenaberding.com](https://www.lenaberding.com/
 ```
 index.html                      → Home
 live-fashion-illustration.html  → Live Fashion Illustration
-live-personalization.html       → Live Personalization & Commissions
+live-personalization.html       → Live Personalization & Commissions — AUSGEBLENDET: nicht im Menü, Footer, Home-Karte und Sitemap, "noindex". Zum Einblenden Links wieder einfügen, Home-Karte entkommentieren und robots auf "index, follow" setzen.
 editorial-illustration.html     → Editorial Illustration (Serien-Übersicht, Masonry-Galerie) — AUSGEBLENDET: nicht im Menü, Footer und in der Sitemap, "noindex". Zum Einblenden Links wieder einfügen und robots auf "index, follow" setzen.
 series-*.html                   → Detailseiten der einzelnen Serien (Titel, Beschreibung, Bildergalerie):
                                    series-private-commission.html,

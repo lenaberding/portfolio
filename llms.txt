@@ -1,15 +1,13 @@
 # Lena Berding — Fashion Illustrator
 
 > Lena Berding is a fashion illustrator and former brand manager offering
-> live event illustration for fashion, beauty and lifestyle brand activations,
-> plus live personalization and custom artwork for brands.
+> live event illustration for fashion, beauty and lifestyle brand activations.
 > Based in Berlin, Germany, available for events across Germany and Europe.
 
 ## Pages
 
-- [Home](https://www.lenaberding.com/): Overview of both services.
+- [Home](https://www.lenaberding.com/): Overview of services.
 - [Live Fashion Illustration](https://www.lenaberding.com/live-fashion-illustration.html): Live event illustration for store openings, product launches and brand activations — booking process, FAQ, pricing model.
-- [Live Personalization & Commissions](https://www.lenaberding.com/live-personalization.html): Personalized products and packaging illustrated live at brand events, plus custom illustration commissions for brands (e.g. illustrated signature dishes turned into coasters).
 - [About](https://www.lenaberding.com/about.html): Background as a designer, brand strategist and illustrator.
 
 ## Contact
