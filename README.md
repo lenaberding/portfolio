@@ -82,7 +82,8 @@ dann aber das `src="images/…"` an der jeweiligen Stelle im HTML mit anpassen.
 
 | Datei | Verwendung | Format |
 |---|---|---|
-| `live-fashion-illustration-hero.jpg` | Home, Hero rechts | Hochformat 3:4 |
+| `home-hero-poster.jpg` | Home, Hero rechts: Standbild des Videos (erstes Bild aus dem Video) | Hochformat 3:4 |
+| `live-fashion-illustration-hero.jpg` | Home, Vorschaubild beim Teilen der Startseite (og:image) | Hochformat 3:4 |
 | `fashion-illustrator-lena-berding-portrait.jpg` | Home, About-Teaser | Hochformat 3:4 |
 | `hero-guest-sketches-1.jpg`, `…-4.jpg`, `hero-guest-sketches-3-detail.jpg`, `hero-guest-sketches-2.jpg` | Live-Seite, Hero-Collage (2×2) | Hochformat 3:4 |
 | `fashion-sketch-live-drawing-event.jpg` | Live-Seite, "The magic of…" | Hochformat 4:5 |
@@ -101,7 +102,8 @@ dann aber das `src="images/…"` an der jeweiligen Stelle im HTML mit anpassen.
 
 | Datei | Verwendung |
 |---|---|
-| `home-hero.mp4` | Home, Hero rechts (läuft stumm in Schleife, Standbild davor: `live-fashion-illustration-hero.jpg`) |
+| `home-hero.mp4` | Home, Hero rechts auf großen Bildschirmen (läuft stumm in Schleife, Standbild davor: `home-hero-poster.jpg`) |
+| `home-hero-mobil.mp4` | Dasselbe Video in kleiner (480×854) für das Handy |
 | `illustrated-wedding-invitation-process.mp4` | Serie "Illustrated Wedding Invitation", Making-of-Video |
 
 **Wichtig für Ladezeit:** Fotos vor dem Hochladen komprimieren (z. B. mit
@@ -110,8 +112,7 @@ nicht mehrere MB direkt vom Handy/der Kamera.
 
 **Jede Datei gehört nur einer Stelle:** Jedes Bild in der Tabelle oben wird nur an
 genau einer Stelle verwendet (Ausnahme: die Serien-Cover erscheinen
-zusätzlich als Vorschaubild, wenn die jeweilige Serien-Seite geteilt wird, und
-`live-fashion-illustration-hero.jpg` dient zusätzlich als Standbild des Home-Videos — das
+zusätzlich als Vorschaubild, wenn die jeweilige Serien-Seite geteilt wird — das
 ist dieselbe Serie, kein Konflikt). Du kannst also jedes Bild einzeln ersetzen,
 ohne dass sich dadurch ungewollt ein Foto an einer anderen Stelle mitändert.
 
