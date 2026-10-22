@@ -8,18 +8,18 @@
 */
 
 // ---------- Hero-Video (index.html) ----------
-// Das Video wird nur auf breiten Bildschirmen geladen und abgespielt. Auf dem
-// Handy, bei aktiviertem Datensparmodus oder wenn reduzierte Bewegung
-// gewünscht ist, bleibt das Standbild (poster) stehen und es werden keine
-// Videodaten heruntergeladen.
+// Das Video spielt auf allen Bildschirmen. Auf schmalen Bildschirmen (Handy)
+// wird die kleinere Version aus data-src-mobile geladen. Bei aktiviertem
+// Datensparmodus oder wenn reduzierte Bewegung gewünscht ist, bleibt das
+// Standbild (poster) stehen und es werden keine Videodaten heruntergeladen.
 (function () {
   const video = document.querySelector('video.hero-video[data-src]');
   if (!video) return;
   const wide = window.matchMedia('(min-width: 901px)').matches;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saveData = navigator.connection && navigator.connection.saveData;
-  if (!wide || reducedMotion || saveData) return;
-  video.src = video.dataset.src;
+  if (reducedMotion || saveData) return;
+  video.src = (!wide && video.dataset.srcMobile) || video.dataset.src;
   video.autoplay = true;
   video.play().catch(() => {});
 })();
