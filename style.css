@@ -515,3 +515,10 @@
   .c4 { left: 42%; top: 58%; width: 54%; transform: rotate(-3deg); }
 }
 @media (max-width: 600px) { .clip { padding: 4px; } .clip.tape::before { width: 40px; height: 13px; top: -7px; } }
+
+/* ---------- Hero-CTA (Startseite): Link zur Live-Illustration-Seite ---------- */
+.hero-cta-link { color: inherit; border-bottom: 1px solid currentColor; padding-bottom: 4px; transition: color .2s ease, border-color .2s ease; }
+.hero-cta-link .arrow { transition: transform .2s ease; }
+.hero-cta-link:hover { color: var(--butter); border-color: var(--butter); }
+.hero-cta-link:hover .arrow { transform: translateX(4px); }
+@media (max-width:600px){ .hero-cta-link .arrow { transform: none; } .hero-cta { align-items:flex-start; } }
